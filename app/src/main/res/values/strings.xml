@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Equipment Manager</string>
+    <string name="equipment_listTV">Equipment List</string>
+    <string name="search_equipmentsET">search equipments</string>
+    <string name="add_equipmentsBtn">Add Equipments</string>
+    <string name="searchBtn">Search</string>
+    <string name="nameTV">Name</string>
+    <string name="editBtn">Edit</string>
+    <string name="deleteBtn">Delete</string>
+    <string name="addBtn">Add</string>
+    <string name="updateBtn">Update</string>
+    <string-array name="frequency">
+        <item>Select Frequency</item>
+        <item>Annual</item>
+        <item>6 months</item>
+        <item>3 months</item>
+    </string-array>
+</resources>

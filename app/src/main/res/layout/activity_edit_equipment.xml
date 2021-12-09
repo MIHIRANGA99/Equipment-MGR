@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".EditEquipment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Equipments"
+        android:textSize="30dp"
+        android:textColor="@color/white"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/eNameETUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:hint="Equipment name"/>
+
+    <EditText
+        android:id="@+id/modNoETUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:hint="Model no"/>
+
+    <EditText
+        android:id="@+id/prtNoETUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:hint="Part no"/>
+
+    <EditText
+        android:id="@+id/serNoETUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:hint="Serial no"/>
+
+    <EditText
+        android:id="@+id/addedDateETUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:editable="false"
+        android:textColor="@color/white"
+        android:hint="Added date"/>
+
+    <Spinner
+        android:id="@+id/frequencySpinUPDATE"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/updateBtnUPDATE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_bg"
+        android:text="@string/updateBtn"
+        android:textAllCaps="false"
+        android:layout_margin="10dp"
+        android:layout_gravity="right"/>
+
+</LinearLayout>
