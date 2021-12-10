@@ -9,6 +9,7 @@
     <string name="deleteBtn">Delete</string>
     <string name="addBtn">Add</string>
     <string name="updateBtn">Update</string>
+    <string name="expires_onTV">Expires On</string>
     <string-array name="frequency">
         <item>Select Frequency</item>
         <item>Annual</item>
