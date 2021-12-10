@@ -130,9 +130,10 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/expires_onTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Expires On"
+            android:text="@string/expires_onTV"
             android:textColor="#606060"
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"

@@ -115,6 +115,9 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
         int calInt = (int) (calTime.getTime()/1000);
         int curInt = (int) (c.getTime()/1000);
 
+        //set alpha initially
+        holder.itemCard.getBackground().setAlpha(200);
+
         if(curInt > calInt){
             cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 7);
             Date calTime1 = cal.getTime();
@@ -130,6 +133,8 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
                 holder.indicator.setBackgroundColor(Color.rgb(165, 0, 0));
                 if(curInt > calInt2){
                     holder.itemCard.getBackground().setAlpha(90);
+
+                    System.out.println(curInt + "    " + calInt + "    " + calInt1 + "    " + calInt2);
                 }
             }
         }
@@ -141,6 +146,7 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
         holder.modNumTV.setText(model.getModNo());
         holder.prtNumTV.setText(model.getPrtNo());
         holder.serNumTV.setText(model.getSerNo());
+        holder.expiresOnTV.setText("expires on (" + model.getFreq() + ")");
 
         holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -192,7 +198,7 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
 
     class eqViewHolder extends RecyclerView.ViewHolder{
 
-        TextView eqNameTV, modNumTV, prtNumTV, serNumTV, expireDateTV, indicator;
+        TextView eqNameTV, modNumTV, prtNumTV, serNumTV, expireDateTV, indicator, expiresOnTV;
         ImageView editBtn,deleteBtn;
         CardView itemCard;
         String exactMonth;
@@ -206,6 +212,7 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
             modNumTV = (TextView) itemView.findViewById(R.id.modelNumTV);
             prtNumTV = (TextView) itemView.findViewById(R.id.partNumTV);
             serNumTV = (TextView) itemView.findViewById(R.id.serialNumTV);
+            expiresOnTV = (TextView) itemView.findViewById(R.id.expires_onTV);
             expireDateTV = (TextView) itemView.findViewById(R.id.expireDateTV);
             editBtn = (ImageView) itemView.findViewById(R.id.btnEdit);
             deleteBtn = (ImageView) itemView.findViewById(R.id.btnDelete);

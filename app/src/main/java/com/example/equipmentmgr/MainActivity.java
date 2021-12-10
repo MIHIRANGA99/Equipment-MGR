@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         LinearLayoutManager manager = new LinearLayoutManager(this);
         eqListRV.setLayoutManager(manager);
 
