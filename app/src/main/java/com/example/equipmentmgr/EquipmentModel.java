@@ -2,13 +2,13 @@ package com.example.equipmentmgr;
 
 public class EquipmentModel {
 
-    String eqName, modNo, prtNo, serNo, freq, addedDate, ID;
+    String eqName, modNo, prtNo, serNo, freq, addedDate, ID, STC;
 
     public EquipmentModel() {
 
     }
 
-    public EquipmentModel(String eqName, String modNo, String prtNo, String serNo, String freq, String addedDate, String ID) {
+    public EquipmentModel(String eqName, String modNo, String prtNo, String serNo, String freq, String addedDate, String ID, String STC) {
         this.eqName = eqName;
         this.modNo = modNo;
         this.prtNo = prtNo;
@@ -16,6 +16,15 @@ public class EquipmentModel {
         this.freq = freq;
         this.addedDate = addedDate;
         this.ID = ID;
+        this.STC = STC;
+    }
+
+    public String getSTC() {
+        return STC;
+    }
+
+    public void setSTC(String STC) {
+        this.STC = STC;
     }
 
     public String getEqName() {

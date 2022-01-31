@@ -53,7 +53,7 @@ public class addEquipment extends AppCompatActivity implements DatePickerDialog.
         freqSpin = findViewById(R.id.frequencySpin);
         frequency = "";
         //SPINNER
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.frequency, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.frequency, R.layout.color_spinner_layout);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         freqSpin.setAdapter(adapter);
 
@@ -128,6 +128,7 @@ public class addEquipment extends AppCompatActivity implements DatePickerDialog.
                                 map.put("freq", frequency);
                                 map.put("addedDate", dateET.getText().toString());
                                 map.put("ID", ID);
+                                map.put("STC", "false");
 
                                 push
                                         .setValue(map)

@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -117,6 +119,33 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
 
         //set alpha initially
         holder.itemCard.getBackground().setAlpha(200);
+        holder.color = "Normal";
+        holder.expiredImage.setVisibility(View.INVISIBLE);
+
+//        if(model.getSTC().equals("true")){
+//            holder.STCCheckBox.setChecked(true);
+//        }
+//        else if (model.getSTC().equals("false")){
+//            holder.STCCheckBox.setChecked(false);
+//        }
+
+        if (model.getSTC().equals("true")){
+            holder.STCTV.setVisibility(View.VISIBLE);
+        }else {
+            holder.STCTV.setVisibility(View.GONE);
+        }
+
+//        holder.STCCheckBox.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(holder.STCCheckBox.isChecked()){
+//                    FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("STC").setValue("true");
+//                }
+//                else {
+//                    FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("STC").setValue("false");
+//                }
+//            }
+//        });
 
         if(curInt > calInt){
             cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 7);
@@ -124,6 +153,7 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
             int calInt1 = (int) (calTime1.getTime()/1000);
 
             holder.indicator.setBackgroundColor(Color.rgb(165, 124, 0));
+            holder.color = "Yellow";
 
             if(curInt > calInt1){
                 cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 7);
@@ -131,15 +161,32 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
                 int calInt2 = (int) (calTime2.getTime()/1000);
 
                 holder.indicator.setBackgroundColor(Color.rgb(165, 0, 0));
-                if(curInt > calInt2){
-                    holder.itemCard.getBackground().setAlpha(90);
+                holder.color = "Red";
 
-                    System.out.println(curInt + "    " + calInt + "    " + calInt1 + "    " + calInt2);
+                if(curInt > calInt2){
+                    holder.expiredImage.setVisibility(View.VISIBLE);
+
+                    holder.color = "Alpha";
                 }
             }
         }
         else {
             holder.indicator.setBackgroundColor(Color.rgb(44, 44, 44));
+        }
+
+        switch (holder.color) {
+            case "Alpha":
+                FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("color").setValue("Alpha");
+                break;
+            case "Red":
+                FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("color").setValue("Red");
+                break;
+            case "Yellow":
+                FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("color").setValue("Yellow");
+                break;
+            case "Normal":
+                FirebaseDatabase.getInstance().getReference().child("Equipment").child(model.getID()).child("color").setValue("Normal");
+                break;
         }
 
         holder.eqNameTV.setText(model.getEqName());
@@ -184,6 +231,7 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), EditEquipment.class);
                 intent.putExtra("Eq", model.getID().toString());
+                intent.putExtra("checked", model.getSTC().toString());
                 view.getContext().startActivity(intent);
             }
         });
@@ -198,12 +246,12 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
 
     class eqViewHolder extends RecyclerView.ViewHolder{
 
-        TextView eqNameTV, modNumTV, prtNumTV, serNumTV, expireDateTV, indicator, expiresOnTV;
-        ImageView editBtn,deleteBtn;
+        TextView eqNameTV, modNumTV, prtNumTV, serNumTV, expireDateTV, indicator, expiresOnTV, STCTV;
+        ImageView editBtn,deleteBtn, expiredImage;
         CardView itemCard;
         String exactMonth;
         String exactDay;
-        String year;
+        String year, color;
 
         public eqViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -218,6 +266,8 @@ public class EquipmentAdapter extends FirebaseRecyclerAdapter<EquipmentModel,Equ
             deleteBtn = (ImageView) itemView.findViewById(R.id.btnDelete);
             indicator = (TextView) itemView.findViewById(R.id.indicator);
             itemCard = (CardView) itemView.findViewById(R.id.itemCardView);
+            expiredImage = (ImageView) itemView.findViewById(R.id.expiredImage);
+            STCTV = (TextView) itemView.findViewById(R.id.STCCheckBox);
 
 
 

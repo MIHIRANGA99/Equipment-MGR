@@ -13,4 +13,13 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="MyCheckBox">
+        <item name="colorControlActivated">@color/BtnBlue</item>
+    </style>
+
+    <style name="MyEditText" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorControlActivated">#007CB6</item>
+        <item name="android:colorControlNormal">#85A4D1</item>
+    </style>
 </resources>

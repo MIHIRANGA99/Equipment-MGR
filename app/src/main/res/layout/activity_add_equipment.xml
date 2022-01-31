@@ -23,6 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:textSize="20dp"
+        android:theme="@style/MyEditText"
+        android:textColorHint="@color/lightBlue"
         android:layout_margin="10dp"
         android:textColor="@color/white"
         android:hint="Equipment name"/>
@@ -33,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:textSize="20dp"
+        android:theme="@style/MyEditText"
+        android:textColorHint="@color/lightBlue"
         android:layout_margin="10dp"
         android:textColor="@color/white"
         android:hint="Model no"/>
@@ -43,6 +47,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:textSize="20dp"
+        android:theme="@style/MyEditText"
+        android:textColorHint="@color/lightBlue"
         android:layout_margin="10dp"
         android:textColor="@color/white"
         android:hint="Part no"/>
@@ -53,6 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:textSize="20dp"
+        android:theme="@style/MyEditText"
+        android:textColorHint="@color/lightBlue"
         android:layout_margin="10dp"
         android:textColor="@color/white"
         android:hint="Serial no"/>
@@ -63,6 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="10dp"
         android:textSize="20dp"
+        android:theme="@style/MyEditText"
+        android:textColorHint="@color/lightBlue"
         android:layout_margin="10dp"
         android:editable="false"
         android:textColor="@color/white"

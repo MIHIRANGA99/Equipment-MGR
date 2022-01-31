@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -36,8 +37,10 @@ public class EditEquipment extends AppCompatActivity implements DatePickerDialog
     Button updateBTN;
     String frequency;
     Calendar c;
+    CheckBox STC;
 
     String name;
+    String checked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,7 @@ public class EditEquipment extends AppCompatActivity implements DatePickerDialog
 
         Intent i = getIntent();
         String ID = i.getStringExtra("Eq");
+        checked = i.getStringExtra("checked");
 
         eName = findViewById(R.id.eNameETUPDATE);
         modNo = findViewById(R.id.modNoETUPDATE);
@@ -54,9 +58,30 @@ public class EditEquipment extends AppCompatActivity implements DatePickerDialog
         dateET = findViewById(R.id.addedDateETUPDATE);
         freqSpin = findViewById(R.id.frequencySpinUPDATE);
         updateBTN = findViewById(R.id.updateBtnUPDATE);
+        STC = findViewById(R.id.STCCheckBoxUPDATE);
+
+        //setCheckbox
+        if (checked.equals("true")){
+            STC.setChecked(true);
+        }
+        else {
+            STC.setChecked(false);
+        }
+
+        STC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (STC.isChecked()){
+                    checked = "true";
+                }
+                else{
+                    checked = "false";
+                }
+            }
+        });
 
         //SPINNER
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.frequency, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),R.array.frequency, R.layout.color_spinner_layout);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         freqSpin.setAdapter(adapter);
 
@@ -167,6 +192,7 @@ public class EditEquipment extends AppCompatActivity implements DatePickerDialog
         map.put("serNo", serialNo.getText().toString());
         map.put("freq", frequency);
         map.put("addedDate", dateET.getText().toString());
+        map.put("STC", checked);
 
         FirebaseDatabase.getInstance().getReference().child("Equipment").child(key).updateChildren(map)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

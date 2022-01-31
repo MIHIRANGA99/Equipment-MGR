@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Equipment Manager</string>
-    <string name="equipment_listTV">Equipment List</string>
+    <string name="app_name">NDT Tool Manager</string>
+    <string name="equipment_listTV">Calibration Details</string>
     <string name="search_equipmentsET">search equipments</string>
     <string name="add_equipmentsBtn">Add Equipments</string>
     <string name="searchBtn">Search</string>
@@ -15,5 +15,13 @@
         <item>Annual</item>
         <item>6 months</item>
         <item>3 months</item>
+    </string-array>
+
+    <string-array name="filter">
+        <item>All</item>
+        <item>Sent to Calibration</item>
+        <item>Expired</item>
+        <item>Within 2 weeks</item>
+        <item>Within a week</item>
     </string-array>
 </resources>

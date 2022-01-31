@@ -14,6 +14,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ImageView
+            android:id="@+id/expiredImage"
+            android:layout_width="160dp"
+            android:layout_height="130dp"
+            android:layout_below="@id/indicator"
+            android:layout_marginLeft="-25dp"
+            android:layout_marginTop="25dp"
+            android:alpha="0.7"
+            android:rotation="-30"
+            android:src="@drawable/expired2" />
+
         <TextView
             android:id="@+id/header"
             android:layout_width="match_parent"
@@ -146,6 +157,15 @@
             android:text="Expires On"
             android:textColor="@color/black"
             android:textAlignment="center"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/STCCheckBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sent to Calibration"
+            android:textSize="14sp"
+            android:textColor="#A30000"
             android:layout_gravity="center_horizontal"/>
 
         <LinearLayout
